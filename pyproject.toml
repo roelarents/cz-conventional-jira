@@ -5,7 +5,7 @@ readme = "README.md"
 license = "MIT"
 requires-python = ">=3.12"
 dependencies = [
-    "commitizen (>=4)"
+    "commitizen (>=4.8.3)"
 ]
 dynamic = [
     "version",
