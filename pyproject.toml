@@ -17,7 +17,7 @@ test = [
 ]
 
 [project.entry-points."commitizen.plugin"]
-cz_conventional_jira = "cz_conventional_jira:CzConventionalJira"
+cz_conventional_jira = "cz_conventional_jira.cz_conventional_jira:CzConventionalJira"
 
 [tool.black]
 line-length = 120
@@ -34,3 +34,4 @@ poetry-dynamic-versioning = { version = ">=1.0.0,<2.0.0", extras = ["plugin"] }
 
 [tool.poetry-dynamic-versioning]
 enable = true
+dirty = true
