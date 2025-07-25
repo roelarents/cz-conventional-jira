@@ -1,13 +1,11 @@
 import re
 from posixpath import join as urlpathjoin
+from typing import TypedDict
 from urllib.parse import urlparse, ParseResult, urlunparse
 
 from commitizen import git
 from commitizen.config import BaseConfig
 from commitizen.cz.conventional_commits import ConventionalCommitsCz
-from commitizen.cz.conventional_commits.conventional_commits import (
-    ConventionalCommitsAnswers,
-)
 from commitizen.cz.exceptions import CzException
 from commitizen.cz.utils import required_validator
 from commitizen.defaults import Settings
@@ -16,7 +14,16 @@ from commitizen.question import CzQuestion, InputQuestion
 JIRA_ISSUE_REGEX = re.compile(r"\b[A-Z][A-Z0-9_]{1,9}-[1-9][0-9]{1,4}\b")  # https://regex101.com/r/ZEzo2R/10
 
 
-class ConventionalJiraAnswers(ConventionalCommitsAnswers, total=False):
+class NonExportedConventionalCommitsAnswers(TypedDict):
+    prefix: str
+    scope: str
+    subject: str
+    body: str
+    footer: str
+    is_breaking_change: bool
+
+
+class ConventionalJiraAnswers(NonExportedConventionalCommitsAnswers, total=False):
     jira_issue_ids: str
 
 
